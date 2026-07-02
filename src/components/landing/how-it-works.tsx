@@ -55,7 +55,7 @@ export default function HowItWorks() {
         </motion.div>
 
         <div className="relative mt-20">
-          <div className="absolute left-50 -translate-x-1/2 top-0 hidden h-full w-px bg-gradient-to-b from-blue-200 via-blue-300 to-blue-200 dark:from-blue-900 dark:via-blue-800 dark:to-blue-900 lg:block" />
+          <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 hidden h-90 w-px bg-gradient-to-b from-blue-200 via-blue-300 to-blue-200 dark:from-blue-900 dark:via-blue-800 dark:to-blue-900 lg:block" />
 
           <div className="space-y-12 lg:space-y-0">
             {steps.map((step, index) => (
