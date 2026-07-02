@@ -265,10 +265,10 @@ export default function TemplatesPage() {
         </Button>
       </div>
 
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row items-start sm:items-center sm:justify-between">
         <div className="flex flex-1 items-center gap-3">
           <div className="relative flex-1 max-w-xs">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400 dark:text-gray-500" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 z-10 text-gray-400 dark:text-gray-500" />
             <Input
               placeholder="Search templates..."
               value={searchQuery}
@@ -295,7 +295,7 @@ export default function TemplatesPage() {
           </div>
         </div>
 
-        <div className="flex items-center rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-100 p-0.5 dark:bg-gray-800">
+        <div className="w-auto flex items-center rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-100 p-0.5 dark:bg-gray-800">
           <button
             onClick={() => setViewMode('grid')}
             className={cn(

@@ -244,18 +244,50 @@ export default function NewApplyPage() {
                 </span>
               </button>
               {i < STEPS.length - 1 && (
-                <div className="mx-3 h-px flex-1 sm:mx-6">
-                  <motion.div
-                    initial={false}
-                    animate={{
-                      background:
-                        s.num <= step
-                          ? 'linear-gradient(to right, #2563eb, #2563eb)'
-                          : 'linear-gradient(to right, #d1d5db, #d1d5db)',
+                <div className="mx-3 flex-1 sm:mx-6 relative h-2">
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      backgroundImage: 'radial-gradient(circle, #d1d5db 2.5px, transparent 2.5px)',
+                      backgroundSize: '16px 8px',
+                      backgroundPosition: '0 center',
+                      backgroundRepeat: 'repeat-x',
                     }}
-                    className="h-full rounded-full"
-                    style={{ height: 2 }}
                   />
+                  <div
+                    className="absolute inset-0 hidden dark:block"
+                    style={{
+                      backgroundImage: 'radial-gradient(circle, #4b5563 2.5px, transparent 2.5px)',
+                      backgroundSize: '16px 8px',
+                      backgroundPosition: '0 center',
+                      backgroundRepeat: 'repeat-x',
+                    }}
+                  />
+                  <motion.div
+                    className="absolute inset-0 overflow-hidden"
+                    initial={false}
+                    animate={{ width: s.num < step ? '100%' : '0%' }}
+                    transition={{ duration: 0.4, ease: 'easeInOut' }}
+                  >
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: 'radial-gradient(circle, #2563eb 2.5px, transparent 2.5px)',
+                        backgroundSize: '16px 8px',
+                        backgroundPosition: '0 center',
+                        backgroundRepeat: 'repeat-x',
+                      }}
+                    />
+                    <div
+                      className="absolute inset-0 hidden dark:block"
+                      style={{
+                        backgroundImage: 'radial-gradient(circle, #3b82f6 2.5px, transparent 2.5px)',
+                        backgroundSize: '16px 8px',
+                        backgroundPosition: '0 center',
+                        backgroundRepeat: 'repeat-x',
+                      }}
+                    />
+                  </motion.div>
                 </div>
               )}
             </div>
@@ -285,7 +317,7 @@ export default function NewApplyPage() {
               <CardContent className="space-y-5">
                 <div className="space-y-2">
                   <Label htmlFor="email">
-                    <span className="flex items-center gap-1.5">
+                    <span className="flex items-center gap-1.5 mb-2 md:mb-3">
                       <Mail className="h-3.5 w-3.5 text-gray-400" />
                       Receiver Email
                     </span>
@@ -301,7 +333,7 @@ export default function NewApplyPage() {
 
                 <div className="space-y-2">
                   <Label htmlFor="company">
-                    <span className="flex items-center gap-1.5">
+                    <span className="flex items-center gap-1.5 mb-2 md:mb-3">
                       <Building2 className="h-3.5 w-3.5 text-gray-400" />
                       Company Name
                     </span>
@@ -316,7 +348,7 @@ export default function NewApplyPage() {
 
                 <div className="space-y-2">
                   <Label htmlFor="position">
-                    <span className="flex items-center gap-1.5">
+                    <span className="flex items-center gap-1.5 mb-2 md:mb-3">
                       <Briefcase className="h-3.5 w-3.5 text-gray-400" />
                       Position
                     </span>
@@ -331,7 +363,7 @@ export default function NewApplyPage() {
 
                 <div className="space-y-2">
                   <Label htmlFor="location">
-                    <span className="flex items-center gap-1.5">
+                    <span className="flex items-center gap-1.5 mb-2 md:mb-3">
                       <MapPin className="h-3.5 w-3.5 text-gray-400" />
                       Location
                     </span>
@@ -346,7 +378,7 @@ export default function NewApplyPage() {
 
                 <div className="space-y-2">
                   <Label htmlFor="website">
-                    <span className="flex items-center gap-1.5">
+                    <span className="flex items-center gap-1.5 mb-2 md:mb-3">
                       <Globe className="h-3.5 w-3.5 text-gray-400" />
                       Company Website
                     </span>
@@ -361,7 +393,9 @@ export default function NewApplyPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="source">Job Source</Label>
+                  <Label htmlFor="source" className="mb-2 md:mb-3">
+                    Job Source
+                  </Label>
                   <Controller
                     name="source"
                     control={control}
@@ -568,7 +602,8 @@ export default function NewApplyPage() {
                       <span className="text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
                         Source
                       </span>
-                      <Badge variant="secondary">{formValues.source}</Badge>
+                      <br />
+                      <Badge variant="secondary" >{formValues.source}</Badge>
                     </div>
                     <div className="space-y-1">
                       <span className="text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
@@ -602,7 +637,7 @@ export default function NewApplyPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-900">
+                  <div className="rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-900 overflow-hidden">
                     <div className="border-b border-gray-200 bg-gray-50 px-5 py-3 dark:border-gray-700 dark:bg-gray-900">
                       <div className="flex items-center gap-2">
                         <div className="flex gap-1.5">
