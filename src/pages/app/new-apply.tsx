@@ -192,7 +192,8 @@ export default function NewApplyPage() {
 
       {/* Progress Indicator */}
       <div className="relative">
-        <div className="flex items-center justify-between">
+        <div className="absolute left-1/2 -translate-x-1/2 top-5 hidden h-px w-[85%] bg-gradient-to-b from-blue-200 via-blue-300 to-blue-200 dark:from-blue-900 dark:via-blue-800 dark:to-blue-900 lg:block" />
+        <div className="relative z-10 flex items-center justify-between">
           {STEPS.map((s, i) => (
             <div key={s.num} className="flex items-center">
               <button
